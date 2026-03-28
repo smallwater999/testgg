@@ -1,0 +1,128 @@
+# OpenClaw U盘便携版配置文件
+# 配置文件说明
+
+# 产品信息
+product:
+  name: "OpenClaw Portable"
+  version: "1.0.0"
+  edition: "Professional"  # Basic/Professional/Enterprise
+  build_date: "2026-03-28"
+
+# 加密设置
+encryption:
+  enabled: true
+  algorithm: "aes-256-cbc"
+  salt: true
+  key_storage: "hardware"
+  integrity_check: true
+  
+# 硬件绑定
+hardware_binding:
+  enabled: true
+  tolerance: 0.95  # 相似度阈值
+  fallback_mode: false  # 硬件失效时是否允许运行
+  
+# 授权配置
+license:
+  mode: "online+offline"  # online/offline/online+offline
+  server_url: "https://license.openclaw.com"
+  offline_duration: 7  # 离线验证有效期（天）
+  heartbeat_interval: 3600  # 心跳检查间隔（秒）
+  
+# 功能控制
+features:
+  basic_chat: true
+  advanced_ai: false  # 根据授权开启
+  voice_assistant: false
+  code_execution: false
+  web_search: false
+  file_editing: false
+  
+# 性能设置
+performance:
+  memory_limit: "512MB"
+  disk_cache_size: "100MB"
+  startup_timeout: 30  # 启动超时（秒）
+  
+# 安全设置
+security:
+  anti_debug: true
+  anti_virtualization: true  # 防止虚拟机运行
+  tamper_protection: true
+  logging_level: "info"  # debug/info/warn/error
+  
+# 网络设置
+network:
+  offline_mode: true  # 是否支持离线运行
+  proxy_enabled: false
+  timeout: 10  # 网络超时（秒）
+  
+# 日志配置
+logging:
+  enabled: true
+  directory: "./logs"
+  rotation_days: 7
+  max_files: 10
+  
+# 更新配置
+updates:
+  enabled: true
+  channel: "stable"  # stable/beta/dev
+  auto_update: false
+  check_interval: 86400  # 检查间隔（秒）
+  
+# 用户界面
+ui:
+  theme: "dark"
+  language: "zh-CN"
+  welcome_message: true
+  progress_bar: true
+  
+# 技能预置
+preinstalled_skills:
+  - "github"
+  - "obsidian"
+  - "summarize"
+  - "weather"
+  - "video-frames"
+  - "tmux"
+  
+# 模型配置
+models:
+  default_model: "yuanbao/openclaw_yuanbao_robot_model"
+  cache_enabled: true
+  cache_size: "100MB"
+  
+# 工作空间
+workspace:
+  default_directory: "./workspace"
+  auto_save: true
+  backup_enabled: true
+  
+# 启动配置
+startup:
+  welcome_splash: true
+  hardware_check: true
+  license_validation: true
+  file_decryption: true
+  integrity_check: true
+  
+# 错误处理
+error_handling:
+  graceful_failure: true  # 优雅失败模式
+  demo_mode_on_failure: false  # 授权失败时进入演示模式
+  restart_on_crash: true
+  max_restarts: 3
+  
+# 监控配置
+monitoring:
+  usage_tracking: true
+  performance_monitoring: true
+  security_logging: true
+  
+# 开发模式（仅调试使用）
+development_mode:
+  enabled: false
+  debug_encryption: false
+  skip_hardware_check: false
+  skip_license_check: false
